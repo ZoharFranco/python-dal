@@ -1,0 +1,21 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from notifactions.dal.db.db_handler import DBHandler
+
+
+class SqlAlchemyHandler(DBHandler):
+
+    def __init__(self, parameters: dict):
+
+        super().__init__()
+
+    def connect(self):
+        engine = create_engine(self.co, echo=True)
+        Session = sessionmaker(bind=engine)
+        self.session = Session()
+
+
+
+    def disconnect(self):
+        pass
